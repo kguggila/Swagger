@@ -1,5 +1,4 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-ARG JAR_FILE=target/esip-swagger.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM adoptopenjdk:8-jdk
+EXPOSE 9093
+COPY ./target/esip-swagger.jar esip-swagger.jar
+CMD ["java","-jar","esip-swagger.jar"]
